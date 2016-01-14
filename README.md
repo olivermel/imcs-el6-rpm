@@ -1,39 +1,84 @@
-RPM Spec file for the imcs 
+# IMCS 1.06-1 RPM built for RHEL 6.5
 
-**Description**: In-Memory Columnar Store extension for PostgreSQL
+**Description**: This project to build an imcs spec file for building the imcs rpm package as an extension for Postgresql.
+
+IMCS is In-Memory Columnar Store for PostgreSQL. 
+Vertical data model is more efficient for analytic queries performing operations on entire column. 
+IMCS provides 10-100 times improvement in performance comparing with standard SQL queries because of:
+
+    data skipping: fetching only data needed for query execution
+    parallel execution: using multiple threads to execute query
+    vector operations: minimizing interpretation overhead and allowing SIMD instructions
+    reduced locking overhead: simple array level locking
+    no disk IO: all data is in memory
+
+
+  - **Technology stack**: 
+
+    When installed imcs will act as an extension for Postgresql. 
+
+
+  - **Functions: 
+    See this page for details on functions: pgxn.org/dist/imcs/user_guide.html#Functions
+
+
+=======
 
 ## Dependencies
 
-Currently, only RHEL and CentOS 6.5 have been tested.  Other dependencies are installed
-via the boostrap.sh script.
+The build process for the imcs rpm requires postgresql9.4-devel and postgresql9.4 (x86_64) packages. 
+And the imcs package is intended for an x86_64 system.
 
 ## Installation
 
-### Build the RPM using Vagrant
+Build RPM using Vagrant
+1. The repo is cloned into a local sandbox
+2. Run "vagrant up" to build the VM.
+3. Run "vagrant ssh" to connect to VM.
+4. Run "rpmbuild -ba SPECS/imcs.spec" to build the imcs rpm package.
 
-1. Once the repo has been cloned, run "vagrant up" to create the bulid VM
-2. Run "vagrant ssh" to connect
-3. CD to ~/rpmbuild
-4. Run "rpmbuild -ba SPECS/imcs.spec"
+Build RPM on server
+1. Once repo is cloned, run "sh ./bootstrap.sh"
+2. cd to ~/rpmbuild 
+3. Run "rpmbuild -ba /SPECS/imcs.spec"
 
-### Build the RPM on a server
-1. Once the repo has been cloned, run "sh ./bootstrap.sh"
-2. CD to ~/rpmbuild
-3. Run "rpmbuild -ba SPECS/imcs.spec"
-
-### Install the RPM
-
-Install the built RPM by running "sudo yum install RPMS/x86_64/imcs.rpm"
+Installing the RPM 
+Install the built RPM by running "sudo yum install RPMS/x86_64/imcs-1.06-1.el6.x86_64.rpm"
 
 ## Configuration
 
-Edit the SPEC file to make changes to the build configuration.
-
-## Usage
-
-imcs will be installed in /usr/bin
+    Edit the SPEC file (SPEC/imcs.spec) to make necessary changes to the build configuration
 
 =======
-# imcs-el6-rpm
-RPM Package for the In-Memory Column Store for Postgres
->>>>>>> efa75090b0450a293eb235fdd3c53daf12e0ba06
+
+
+## Known issues
+
+    There a a few compilation errors that are displayed during the RPM build process. 
+    These are related to the build process and does not affect the usability of the package install.
+
+## Getting help
+
+If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
+
+
+## Getting involved
+
+For general instructions on _how_ to contribute, please refer to [CONTRIBUTING](CONTRIBUTING.md).
+
+
+----
+
+## Open source licensing info
+1. [TERMS](TERMS.md)
+2. [LICENSE](LICENSE)
+3. [CFPB Source Code Policy](https://github.com/cfpb/source-code-policy/)
+
+
+----
+
+## Credits and references
+
+See below links
+http://pgxn.org/dist/imcs/user_guide.html
+http://garret.ru/imcs/user_guide.html
