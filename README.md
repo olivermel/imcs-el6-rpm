@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 RPM Spec file for the imcs 
 
 **Description**: In-Memory Columnar Store extension for PostgreSQL
