@@ -3,7 +3,6 @@
 ############################
 %global _version 1.06
 
-
 ###############
 # Set metadata
 ###############
@@ -33,7 +32,6 @@ Columnar store or vertical representation of data allows to achieve better perfo
 # Build requirements
 #####################
 BuildRoot: %(mktemp -ud %{_tmppath}/build/%{name}-%{version}-%{release}-XXXXXX)
-BuildRequires: postgresql-devel, postgresql
 
 
 ########################################################
@@ -78,11 +76,12 @@ make USE_PGXS=1
 %make_install
 
 
+
+
+
+
 %files
 
-/usr/pgsql-9.4/lib/imcs.so
-/usr/pgsql-9.4/share/extension/imcs--1.1.sql
-/usr/pgsql-9.4/share/extension/imcs.control
 /usr/pgsql-9.4/lib/imcs.so
 /usr/pgsql-9.4/share/extension/imcs--1.1.sql
 /usr/pgsql-9.4/share/extension/imcs.control
