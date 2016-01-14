@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 RPM Spec file for the imcs 
 
 **Description**: In-Memory Columnar Store extension for PostgreSQL
@@ -33,3 +34,7 @@ Edit the SPEC file to make changes to the build configuration.
 
 imcs will be installed in /usr/bin
 
+=======
+# imcs-el6-rpm
+RPM Package for the In-Memory Column Store for Postgres
+>>>>>>> efa75090b0450a293eb235fdd3c53daf12e0ba06
