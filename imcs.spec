@@ -3,6 +3,8 @@
 ############################
 %global _version 1.06
 
+%define pg_dir /usr/pgsql-9.4
+
 ###############
 # Set metadata
 ###############
@@ -83,9 +85,10 @@ make USE_PGXS=1
 
 %files
 
-/usr/pgsql-9.4/lib/imcs.so
-/usr/pgsql-9.4/share/extension/imcs--1.1.sql
-/usr/pgsql-9.4/share/extension/imcs.control
+%{pg_dir}/lib/imcs.so
+%{pg_dir}/share/extension/imcs--1.1.sql
+%{pg_dir}/share/extension/imcs.control
+
 
 %doc
 

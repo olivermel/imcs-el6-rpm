@@ -40,7 +40,10 @@ Build RPM using Vagrant
 Build RPM on server
 1. Once repo is cloned, run "sh ./bootstrap.sh"
 2. cd to ~/rpmbuild 
-3. Run "rpmbuild -ba /SPECS/imcs.spec"
+3. Run the following command 
+      rpmbuild -ba /SPECS/imcs.spec --define 'pg_dir'  
+
+    The pg_dir variable will allow for the customization of the install location based on where postgresql is located on your local system.
 
 Installing the RPM 
 Install the built RPM by running "sudo yum install RPMS/x86_64/imcs-1.06-1.el6.x86_64.rpm"
