@@ -3,7 +3,6 @@
 ############################
 %global _version 1.06
 
-%define pg_dir /usr/pgsql-9.4
 
 ###############
 # Set metadata
@@ -17,7 +16,8 @@ Summary: In-memory Columnar Store extension for PostgreSQL
 Group:   Development/Tools
 License: Apache License
 URL:     https://github.com/knizhnik/imcs
-Source:  https://github.com/knizhnik/imcs/archive/master.tar.gz
+#Source:  https://github.com/knizhnik/imcs/archive/master.tar.gz
+Source:  https://github.com/knizhnik/imcs/archive/imcs-1.06.tar.gz
 Obsoletes: imcs <= 1.05
 Provides: imcs = 1.06
 
@@ -67,15 +67,15 @@ LDFLAGS="-pthread"
 
 echo $PWD
 
-#%%configure
-
-
 #make %{?_smp_mflags}
-make USE_PGXS=1
+#make USE_PGXS=1
+
+
+make install USE_PGXS=1 DESTDIR=${RPM_BUILD_ROOT}
 
 
 %install
-%make_install
+###%%make_install
 
 
 
@@ -84,9 +84,6 @@ make USE_PGXS=1
 
 %files
 
-%{pg_dir}/lib/imcs.so
-%{pg_dir}/share/extension/imcs--1.1.sql
-%{pg_dir}/share/extension/imcs.control
 
 
 %doc
