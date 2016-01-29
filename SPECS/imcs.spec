@@ -34,7 +34,6 @@ Columnar store or vertical representation of data allows to achieve better perfo
 # Build requirements
 #####################
 BuildRoot: %(mktemp -ud %{_tmppath}/build/%{name}-%{version}-%{release}-XXXXXX)
-BuildRequires: postgresql94-devel, postgresql94l
 
 
 ########################################################
