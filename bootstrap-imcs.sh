@@ -4,7 +4,7 @@ sudo yum -y install libicu-devel
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 
-if [ "$SCRIPTPATH" = "/Users/ezeogum/Projects/rpm-git-clones/imcs-el6-rpm" ] ; then
+if [ "$SCRIPTPATH" = "/home" ] ; then
        SCRIPTPATH=/vagrant
    fi
   

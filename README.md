@@ -43,9 +43,9 @@ Build RPM on server
     1. Once repo is cloned, run "sh ./bootstrap.sh"
     2. cd to ~/rpmbuild 
     3. Run the following command 
-      rpmbuild -ba /SPECS/imcs.spec --define 'pg_dir'  
+      rpmbuild -ba /SPECS/imcs.spec 
 
-    The pg_dir variable will allow for the customization of the install location based on where postgresql is located on your local system.
+    Please note that "pg_config" MUST be accessible in users path...
 
 ## Installing the RPM 
 
