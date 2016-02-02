@@ -67,22 +67,15 @@ LDFLAGS="-pthread"
 
 echo $PWD
 
-#make %{?_smp_mflags}
-#make USE_PGXS=1
 
-
+%install
 make install USE_PGXS=1 DESTDIR=${RPM_BUILD_ROOT}
 
 
-%install
-###%%make_install
-
-
-
-
-
-
 %files
+/usr/pgsql-9.4/lib/imcs.so
+/usr/pgsql-9.4/share/extension/imcs--1.1.sql
+/usr/pgsql-9.4/share/extension/imcs.control
 
 
 
