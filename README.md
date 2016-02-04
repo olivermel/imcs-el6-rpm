@@ -1,4 +1,4 @@
-# IMCS 1.06-1 RPM built for RHEL 6.5
+# IMCS 1.06 RPM built for RHEL 6.5
 
 **Description**: This project to build an imcs spec file for building the imcs rpm package as an extension for Postgresql.
 
@@ -36,7 +36,9 @@ Build RPM using Vagrant
     1. The repo is cloned into a local sandbox
     2. Run "vagrant up" to build the VM.
     3. Run "vagrant ssh" to connect to VM.
-    4. Run "rpmbuild -ba SPECS/imcs.spec" to build the imcs rpm package.
+    4. Run rpmbuild -ba SPECS/imcs.spec --define 'pg_dir /usr/mysql-9.4'  to build the imcs rpm package.
+
+    Please note that you should may have to update the define pg_dir path to locate mysql-9.4 on your system
 
 Build RPM on server
 
