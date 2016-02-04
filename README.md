@@ -36,7 +36,7 @@ Build RPM using Vagrant
     1. The repo is cloned into a local sandbox
     2. Run "vagrant up" to build the VM.
     3. Run "vagrant ssh" to connect to VM.
-    4. Run rpmbuild -ba SPECS/imcs.spec --define 'pg_dir /usr/mysql-9.4'  to build the imcs rpm package.
+    4. Run rpmbuild -ba SPECS/imcs.spec --define 'pg_dir /usr/pgsql-9.4'  to build the imcs rpm package.
 
     Please note that you may have to update the above --define pg_dir path to reflect the path for mysql-9.4 on your own system
 
@@ -45,7 +45,7 @@ Build RPM on server
     1. Once repo is cloned, run "sh ./bootstrap.sh"
     2. cd to ~/rpmbuild 
     3. Run the following command 
-      rpmbuild -ba /SPECS/imcs.spec  --define 'pg_dir /usr/mysql-9.4'
+      rpmbuild -ba /SPECS/imcs.spec  --define 'pg_dir /usr/pgsql-9.4'
 
     Please note that "pg_config" MUST be accessible in users path...
 
