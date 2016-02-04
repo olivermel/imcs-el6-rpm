@@ -45,7 +45,7 @@ Build RPM on server
     1. Once repo is cloned, run "sh ./bootstrap.sh"
     2. cd to ~/rpmbuild 
     3. Run the following command 
-      rpmbuild -ba /SPECS/imcs.spec 
+      rpmbuild -ba /SPECS/imcs.spec  --define 'pg_dir /usr/mysql-9.4'
 
     Please note that "pg_config" MUST be accessible in users path...
 
