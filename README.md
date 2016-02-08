@@ -47,7 +47,7 @@ Build RPM on server
     3. Run the following command 
       rpmbuild -ba /SPECS/imcs.spec  --define 'pg_dir /usr/pgsql-9.4'
 
-    Please note that "pg_config" MUST be accessible in users path...
+    Please note that "pg_dir" MUST be accessible in users path...
 
 ## Installing the RPM 
 
