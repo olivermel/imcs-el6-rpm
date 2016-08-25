@@ -8,18 +8,18 @@
 # Set metadata
 ###############
 
-Name:    imcs
-Version: %{_version}
-Release: 1%{?dist}
-Summary: In-memory Columnar Store extension for PostgreSQL
+Name:    	imcs%{suffix}
+Version: 	%{_version}
+Release: 	1%{?dist}
+Summary: 	In-memory Columnar Store extension for PostgreSQL
 
-Group:   Development/Tools
-License: Apache License
-URL:     https://github.com/knizhnik/imcs
-#Source:  https://github.com/knizhnik/imcs/archive/master.tar.gz
-Source:  https://github.com/knizhnik/imcs/archive/imcs-1.06.tar.gz
-Obsoletes: imcs <= 1.05
-Provides: imcs = 1.06
+Group:   	Development/Tools
+License: 	Apache License
+URL:     	https://github.com/knizhnik/imcs
+#Source:  	https://github.com/knizhnik/imcs/archive/master.tar.gz
+Source:  	https://github.com/knizhnik/imcs/archive/imcs-1.06.tar.gz
+Obsoletes: 	imcs%{suffix} <= 1.05
+Provides: 	imcs%{suffix} = 1.06
 
 %description
 Columnar store or vertical representation of data allows to achieve better performance in comparison with classical horizontal representation due to three factors:
@@ -73,15 +73,5 @@ make install USE_PGXS=1 DESTDIR=${RPM_BUILD_ROOT}
 
 
 %files
-/usr/pgsql-9.4/lib/imcs.so
-/usr/pgsql-9.4/share/extension/imcs--1.1.sql
-/usr/pgsql-9.4/share/extension/imcs.control
-
-
-
-%doc
-
-
-
-%changelog
+#/usr/pgsql-9.5/
 
