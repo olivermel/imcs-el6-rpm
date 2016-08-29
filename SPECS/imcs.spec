@@ -59,11 +59,13 @@ BuildRoot: %(mktemp -ud %{_tmppath}/build/%{name}-%{version}-%{release}-XXXXXX)
 CFLAGS="-O3 -Wall -Wno-format-security"
 LDFLAGS="-pthread"
 
+#make
+
 ###########################################################
 # INSTALL
 # This directive is where the code is actually installed
 # in the %{buildroot} folder in preparation for packaging.
-###########################################################
+############################################################
 
 echo $PWD
 
@@ -71,7 +73,14 @@ echo $PWD
 %install
 make install USE_PGXS=1 DESTDIR=${RPM_BUILD_ROOT}
 
+mkdir -p %{buildroot}/etc/profile.d
 
+echo 'export PATH=$PATH:%{pg_dir}/bin/' >> %{buildroot}/etc/profile.d/imcs.sh
+echo 'export USE_PGXS=1' >> %{buildroot}/etc/profile.d/imcs.sh
+source %{buildroot}/etc/profile.d/imcs.sh
+
+
+############################################################
 %files
-#/usr/pgsql-9.5/
+/etc/profile.d/imcs.sh
 
