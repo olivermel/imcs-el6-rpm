@@ -16,7 +16,6 @@ Summary: 	In-memory Columnar Store extension for PostgreSQL
 Group:   	Development/Tools
 License: 	Apache License
 URL:     	https://github.com/knizhnik/imcs
-#Source:  	https://github.com/knizhnik/imcs/archive/master.tar.gz
 Source:  	https://github.com/knizhnik/imcs/archive/imcs-1.06.tar.gz
 Obsoletes: 	imcs%{_suffix} <= 1.05
 Provides: 	imcs%{_suffix} = 1.06
