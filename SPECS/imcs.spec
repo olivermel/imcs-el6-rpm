@@ -8,7 +8,7 @@
 # Set metadata
 ###############
 
-Name:    	imcs%{suffix}
+Name:    	imcs%{_suffix}
 Version: 	%{_version}
 Release: 	1%{?dist}
 Summary: 	In-memory Columnar Store extension for PostgreSQL
@@ -18,8 +18,8 @@ License: 	Apache License
 URL:     	https://github.com/knizhnik/imcs
 #Source:  	https://github.com/knizhnik/imcs/archive/master.tar.gz
 Source:  	https://github.com/knizhnik/imcs/archive/imcs-1.06.tar.gz
-Obsoletes: 	imcs%{suffix} <= 1.05
-Provides: 	imcs%{suffix} = 1.06
+Obsoletes: 	imcs%{_suffix} <= 1.05
+Provides: 	imcs%{_suffix} = 1.06
 
 %description
 Columnar store or vertical representation of data allows to achieve better performance in comparison with classical horizontal representation due to three factors:
@@ -73,14 +73,8 @@ echo $PWD
 %install
 make install USE_PGXS=1 DESTDIR=${RPM_BUILD_ROOT}
 
-mkdir -p %{buildroot}/etc/profile.d
-
-echo 'export PATH=$PATH:%{pg_dir}/bin/' >> %{buildroot}/etc/profile.d/imcs.sh
-echo 'export USE_PGXS=1' >> %{buildroot}/etc/profile.d/imcs.sh
-source %{buildroot}/etc/profile.d/imcs.sh
-
-
 ############################################################
 %files
-/etc/profile.d/imcs.sh
-
+%{pg_dir}/lib/imcs.so
+%{pg_dir}/share/extension/imcs--1.1.sql
+%{pg_dir}/share/extension/imcs.control
