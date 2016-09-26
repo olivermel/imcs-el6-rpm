@@ -58,16 +58,13 @@ BuildRoot: %(mktemp -ud %{_tmppath}/build/%{name}-%{version}-%{release}-XXXXXX)
 CFLAGS="-O3 -Wall -Wno-format-security"
 LDFLAGS="-pthread"
 
-#make
+make
 
 ###########################################################
 # INSTALL
 # This directive is where the code is actually installed
 # in the %{buildroot} folder in preparation for packaging.
 ############################################################
-
-echo $PWD
-
 
 %install
 make install USE_PGXS=1 DESTDIR=${RPM_BUILD_ROOT}
